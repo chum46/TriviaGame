@@ -1,3 +1,4 @@
+// ARRAY OF TRIVIA QUESTIONS
 var questionArr = [{
     question: "In the episode 'Get Schwifty, which rapper is the sole survivor of a catastrophe at the Grammys that kills all of Earth's musical artists?",
     choices: ["Ice Cube","Ice-T","Vanilla Ice","Jay-Z"],
@@ -10,8 +11,11 @@ var questionArr = [{
     image: "./assets/images/wubba.gif"
 }];
 
+// MAIN PROCESS CLICK EVENTS //
+
 $('#start').on('click',function(){
     $('#start').remove();
+    $('#instruction').remove();
     game.loadQ();
 })
 
@@ -19,10 +23,15 @@ $(document).on('click','.button2',function(e){
     game.clicked(e);
 })
 
+$(document).on('click','#reset',function(){
+    // Reloads the game when the Reset button is clicked
+    location.reload(true);
+})
+
+// OBJECT CONTAINING GAME FUNCTIONS //
 var game = {
-    questions: questionArr,
-    questionNow: 0,
-    counter: 10,
+    qIndex: 0,
+    counter: 15,
     correct: 0,
     incorrect: 0,
     countdown: function(){
@@ -35,37 +44,34 @@ var game = {
     },
     loadQ: function(){
         timer = setInterval(game.countdown,1000);
-        $('#subcontainer').html("<h2>"+questionArr[game.questionNow].question+"</h2>");
-        for(var i=0;i<questionArr[game.questionNow].choices.length;i++){
-            $('#subcontainer').append('<button class="button2" id="button-'+ i + '" data-name="'+questionArr[game.questionNow].choices[i]+'">'+questionArr[game.questionNow].choices[i]+'</button>'+'\n');
+        $('#subcontainer').html("<h2 id='counter'>15</h2>");
+        $('#subcontainer').append("<h2>"+questionArr[game.qIndex].question+"</h2>");
+        for(var i=0;i<questionArr[game.qIndex].choices.length;i++){
+            $('#subcontainer').append('<button class="button2" id="button-'+ i + '" data-name="'+questionArr[game.qIndex].choices[i]+'">'+questionArr[game.qIndex].choices[i]+'</button>'+'\n');
 
         }
     },
     nextQ: function(){
-        game.counter = 10;
+        game.counter = 15;
         $('#counter').html(game.counter);
-        game.questionNow++;
+        game.qIndex++;
         game.loadQ();
     },
+
     timesUp: function(){
         clearInterval(timer);
         game.incorrect++;
         $('#subcontainer').html('<h2> OUT OF TIME! </h2>');
-        if (game.questionNow==questionArr.length-1){
+        if (game.qIndex==questionArr.length-1){
             setTimeout(game.results,3*1000);
         } else {
             setTimeout(game.nextQ,3*1000);
         }
     },
-    results: function(){
-        clearInterval(timer);
-        $('#subcontainer').html('<h1> Game Completed! </h1>');
-        $('#subcontainer').append('<h2>'+game.correct+' Correct </h2>');
-        $('#subcontainer').append('<h2> out of '+questionArr.length+'</h2>');
-    },
+
     clicked: function(e){
         clearInterval(timer);
-        if($(e.target).data("name")==questionArr[game.questionNow].correctAns){
+        if($(e.target).data("name")==questionArr[game.qIndex].correctAns){
             game.rightAns();
         } else {
             game.wrongAns();
@@ -76,8 +82,8 @@ var game = {
         clearInterval(timer);
         game.correct++;
         $('#subcontainer').html('<h2> CORRECT!</h2>');
-        $('#subcontainer').append("<img src = "+questionArr[game.questionNow].image+">");
-        if (game.questionNow==questionArr.length-1){
+        $('#subcontainer').append("<img src = "+questionArr[game.qIndex].image+">");
+        if (game.qIndex==questionArr.length-1){
             setTimeout(game.results,3*1000);
         } else {
             setTimeout(game.nextQ,3*1000);
@@ -88,13 +94,17 @@ var game = {
         clearInterval(timer);
         game.incorrect++;
         $('#subcontainer').html('<h2> WRONG ANSWER!</h2>');
-        if (game.questionNow==questionArr.length-1){
+        if (game.qIndex==questionArr.length-1){
             setTimeout(game.results,3*1000);
         } else {
             setTimeout(game.nextQ,3*1000);
         }
     },
-    resetGame: function(){
-
+    results: function(){
+        clearInterval(timer);
+        $('#subcontainer').html('<h1> Game Completed! </h1>');
+        $('#subcontainer').append('<h2>'+game.correct+' Correct </h2>');
+        $('#subcontainer').append('<h2> out of '+questionArr.length+'</h2>');
+        $('#subcontainer').append("<button class='button1' id='reset'>RESTART</button>");
     }
 }

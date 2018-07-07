@@ -11,7 +11,8 @@
     /* width: 75%; */
     font-family: 'Cute Font', cursive;
     color: white;
-    background-color: rgba(21, 27, 53, 0.473);
+    background-color: rgba(114, 17, 22, 0.87);
+    
 }
 
 html {
@@ -41,7 +42,8 @@ html {
     /* width: 75%; */
     /* font-family: 'Cute Font', cursive; */
     color: white;
-    background-color: rgba(21, 27, 53, 0.473);
+    background-color: rgba(21, 27, 53, 0.644);
+    padding:.25em;
 }
 
 h1 {
@@ -93,7 +95,7 @@ p {
 
 .button2 {
     width: 50%;
-    /* margin:1.1em; */
+    margin:.1em;
     font-size:1.1em;
     background-color: green;
     padding-top: 1.1em;
@@ -114,4 +116,22 @@ p {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     /* transform: translateY(4px); */
+}
+
+.col-12 {width: 100%;}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0px;
+	background: #131212a9;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	color: #fff;
+	/* border-top: 2px solid #4aaaa5; */
 }
