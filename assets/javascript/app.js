@@ -9,6 +9,16 @@ var questionArr = [{
     choices: ["And that's the wayyyyy the news goes", "Wubbalubbadubdub","Hit the sack, Jack","Death to Cromulon"],
     correctAns: "Death to Cromulon",
     image: "./assets/images/wubba.gif"
+}, {
+    question: "Which of these cartoons is known to be in the same universe as Rick and Morty?",
+    choices: ["The Simpsons", "Family Guy", "Gravity Falls", "Futurama"],
+    correctAns: "Gravity Falls",
+    image: "./assets/images/wubba.gif"
+}, {
+    question: "What was the original name for Rick and Morty?",
+    choices: ["Back to the Future with Rick and Morty", "The Real Animated Adventures of Doc and Marty", "Doc and Morty", "House of Cosbys"],
+    correctAns: "The Real Animated Adventures of Doc and Marty",
+    image: "./assets/images/wubba.gif"
 }];
 
 // MAIN PROCESS CLICK EVENTS //

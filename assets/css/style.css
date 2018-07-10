@@ -126,12 +126,12 @@ p {
 }
 
 #footer {
-	position: absolute;
-	bottom: 0px;
-	background: #131212a9;
-	height: 70px;
-	text-align: center;
-	line-height: 70px;
-	color: #fff;
-	/* border-top: 2px solid #4aaaa5; */
+    position: relative;
+    bottom: 0px;
+    background: #666666;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    border-top: 2px solid #4aaaa5;
 }
