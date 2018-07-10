@@ -57,6 +57,22 @@ h2 {
     font-size: 2em;
 }
 
+h3 {
+    font-size: 30px;
+    font-family: 'Cute Font', cursive;
+}
+
+h4 {
+    font-size: 20px;
+    font-family: 'Cute Font', cursive;
+}
+
+h5 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.8em;
+    color: red;
+}
+
 .boxSet {
     padding: 1.25em;
     /* background-color: rgba(84, 164, 203, 80%); */
@@ -97,7 +113,7 @@ p {
     width: 50%;
     margin:.1em;
     font-size:1.1em;
-    background-color: green;
+    background-color: rgb(2, 187, 2);
     padding-top: 1.1em;
     padding-bottom: 1.1em;
     border-color: black;

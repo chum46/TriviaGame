@@ -1,6 +1,6 @@
 // ARRAY OF TRIVIA QUESTIONS
 var questionArr = [{
-    question: "In the episode 'Get Schwifty', which rapper is the sole survivor of a catastrophe at the Grammys that kills all of Earth's musical artists?",
+    question: "In 'Get Schwifty', who is the sole survivor of a catastrophe that kills all of Earth's musical artists?",
     choices: ["Ice Cube","Ice-T","Vanilla Ice","Jay-Z"],
     correctAns: "Ice-T",
     image: "./assets/images/schwifty.gif"
@@ -75,7 +75,7 @@ var game = {
     },
     loadQ: function(){
         timer = setInterval(game.countdown,1000);
-        $('#subcontainer').html("<h2 id='counter'>15</h2>");
+        $('#subcontainer').html("<h5 id='counter'>15</h5>");
         $('#subcontainer').append("<h2>"+questionArr[game.qIndex].question+"</h2>");
         for(var i=0;i<questionArr[game.qIndex].choices.length;i++){
             $('#subcontainer').append('<button class="button2" id="button-'+ i + '" data-name="'+questionArr[game.qIndex].choices[i]+'">'+questionArr[game.qIndex].choices[i]+'</button>'+'\n');
@@ -134,17 +134,16 @@ var game = {
     },
     results: function(){
         clearInterval(timer);
-        $('#subcontainer').html('<h1> Game Completed! </h1>');
-        $('#subcontainer').append('<h2>Correct Answers: '+game.correct+' </h2>');
-        $('#subcontainer').append('<h2>Wrong Answers: '+game.incorrect+' </h2><br>');
+        $('#subcontainer').html('<h3> Game Completed! </h3>');
+        $('#subcontainer').append('<h3>Correct Answers: '+game.correct+' Wrong Answers: '+game.incorrect+' </h3><br>');
         if (game.correct>game.incorrect) {
-            $('#subcontainer').append('<h2>WINNER!!! You kept Summer Safe </h2>');
+            $('#subcontainer').append('<h3>WINNER!!! You kept Summer Safe </h3>');
             $('#subcontainer').append("<button class='button1' id='reset'>RESTART</button>");
-            $('#subcontainer').append("<div style='width:50%;height:0;padding-bottom:30%;position:relative;'><iframe src='https://giphy.com/embed/3o7TKVH7nbfCVgzaBq' width='100%' height='100%' style='position:absolute' frameBorder='0' class='giphy-embed' allowFullScreen></iframe></div><p><a href='https://giphy.com/gifs/adultswim-3o7TKVH7nbfCVgzaBq'>via GIPHY</a></p>");
+            $('#subcontainer').append("<div style='width:50%;height:0;padding-bottom:25%;position:relative;'><iframe src='https://giphy.com/embed/3o7TKVH7nbfCVgzaBq' width='100%' height='100%' style='position:absolute' frameBorder='0' class='giphy-embed' allowFullScreen></iframe></div><p><a href='https://giphy.com/gifs/adultswim-3o7TKVH7nbfCVgzaBq'>via GIPHY</a></p>");
         } else {
-            $('#subcontainer').append('<h2>YOU LOSE... </h2><br><p>Your function is to keep Summer safe. Not to keep Summer being, like... totally stoked about, like... the general vibe and stuff. Try Again.');
+            $('#subcontainer').append('<h3>YOU LOSE... </h3><br><h4>Your function is to keep Summer safe. Not to keep Summer being, like... totally stoked about, like... the general vibe and stuff. Try Again.</h4>');
             $('#subcontainer').append("<button class='button1' id='reset'>RESTART</button>");
-            $('#subcontainer').append("<div style='width:50%;height:0;padding-bottom:30%;position:relative;'><iframe src='https://giphy.com/embed/3o7TKVH7nbfCVgzaBq' width='100%' height='100%' style='position:absolute' frameBorder='0' class='giphy-embed' allowFullScreen></iframe></div><p><a href='https://giphy.com/gifs/adultswim-3o7TKVH7nbfCVgzaBq'>via GIPHY</a></p>");
+            $('#subcontainer').append("<div style='width:50%;height:0;padding-bottom:25%;position:relative;'><iframe src='https://giphy.com/embed/3o7TKVH7nbfCVgzaBq' width='100%' height='100%' style='position:absolute' frameBorder='0' class='giphy-embed' allowFullScreen></iframe></div><p><a href='https://giphy.com/gifs/adultswim-3o7TKVH7nbfCVgzaBq'>via GIPHY</a></p>");
         }
         // $('#subcontainer').append("<button class='button1' id='reset'>RESTART</button>");
     }
