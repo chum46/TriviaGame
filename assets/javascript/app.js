@@ -39,21 +39,27 @@ var questionArr = [{
 // MAIN PROCESS CLICK EVENTS //
 
 $('#start').on('click',function(){
+    // Removes the start button and instructions and loads the game
     $('#start').remove();
     $('#instruction').remove();
     game.loadQ();
 })
 
 $(document).on('click','.button2',function(e){
+    // Passes the answer that the user clicks on to function
     game.clicked(e);
 })
 
 $(document).on('click','#reset',function(){
-    // Reloads the game when the Reset button is clicked
-    location.reload(true);
+    // Resets the game without reloading the page
+    game.qIndex=0;
+    game.correct=0;
+    game.incorrect=0;
+    game.counter=15;
+    game.loadQ();
 })
 
-// OBJECT CONTAINING GAME FUNCTIONS //
+// OBJECT CONTAINING THE GAME FUNCTIONS //
 var game = {
     qIndex: 0,
     counter: 15,
